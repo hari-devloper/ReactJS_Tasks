@@ -1,19 +1,21 @@
-// tasks/task-01-counter-app/CounterApp.jsx
-
 import React, { useState } from 'react';
 
-function CounterApp() {
+const CounterApp = () => {
   const [count, setCount] = useState(0);
 
+  const handleIncrement = () => setCount(count + 1);
+  const handleDecrement = () => setCount(count - 1);
+  const handleReset = () => setCount(0);
+
   return (
-    <div style={{ padding: "20px" }}>
+    <div style={{ textAlign: 'center', marginTop: '100px' }}>
       <h2>🧮 React Counter App</h2>
-      <p>Current count: <strong>{count}</strong></p>
-      <button onClick={() => setCount(count + 1)}>Increment ➕</button>
-      <button onClick={() => setCount(count - 1)} style={{ marginLeft: "10px" }}>Decrement ➖</button>
-      <button onClick={() => setCount(0)} style={{ marginLeft: "10px" }}>Reset 🔄</button>
+      <p>Count: <strong>{count}</strong></p>
+      <button onClick={handleIncrement}>➕ Increment</button>
+      <button onClick={handleDecrement} style={{ marginLeft: '10px' }}>➖ Decrement</button>
+      <button onClick={handleReset} style={{ marginLeft: '10px' }}>🔄 Reset</button>
     </div>
   );
-}
+};
 
 export default CounterApp;
